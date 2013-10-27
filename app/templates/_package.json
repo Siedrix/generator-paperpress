@@ -1,0 +1,11 @@
+{
+	"name": "<%= _.slugify(blogName) %>",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies" : {
+		"express"     : "*",
+		"consolidate" : "*",
+		"swig"        : "*",
+		"paperpress"  : "*"
+	}
+}
