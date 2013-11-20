@@ -1,0 +1,5 @@
+{
+	"title" : "<%= name %>",
+	"path"  : "<%= slug %>",
+	"date" : "<%= date %>"
+}
