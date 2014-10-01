@@ -41,23 +41,20 @@ PaperpressGenerator.prototype.app = function app() {
     this.mkdir('static/articles');
     this.mkdir('static/layouts');
     this.mkdir('static/pages');
-    this.mkdir('static/public');
-    this.mkdir('static/public/style');
 
     this.copy('_package.json', 'package.json');
     this.copy('_gitignore',    '.gitignore');
     this.copy('_server.js',    'server.js');
+    this.copy('README.md',     'README.md');
 
     this.copy('_feed-description.json', 'static/feed-description.json');
 
     this.copy('layouts/layout.html',   'static/layouts/layout.html');
+    this.copy('layouts/page.html',     'static/layouts/page.html');
     this.copy('layouts/single.html',   'static/layouts/single.html');
     this.copy('layouts/multiple.html', 'static/layouts/multiple.html');
 
-    this.copy('style/main.css',          'static/public/style/main.css');
-    this.copy('style/bootstrap.min.css', 'static/public/style/bootstrap.min.css');
-
-    this.mkdir('static/pages/about');
-    this.copy('about/info.json',  'static/pages/about/info.json');
-    this.copy('about/content.md', 'static/pages/about/content.md');
+    this.directory('public',   'static/public');
+    this.directory('pages',    'static/pages');
+    this.directory('articles', 'static/articles');
 };
