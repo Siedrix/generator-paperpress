@@ -38,9 +38,7 @@ PaperpressGenerator.prototype.askFor = function askFor() {
 
 PaperpressGenerator.prototype.app = function app() {
     this.mkdir('static');
-    this.mkdir('static/articles');
-    this.mkdir('static/layouts');
-    this.mkdir('static/pages');
+    this.mkdir('static/snippets');
 
     this.copy('_package.json', 'package.json');
     this.copy('_gitignore',    '.gitignore');
@@ -49,11 +47,7 @@ PaperpressGenerator.prototype.app = function app() {
 
     this.copy('_feed-description.json', 'static/feed-description.json');
 
-    this.copy('layouts/layout.html',   'static/layouts/layout.html');
-    this.copy('layouts/page.html',     'static/layouts/page.html');
-    this.copy('layouts/single.html',   'static/layouts/single.html');
-    this.copy('layouts/multiple.html', 'static/layouts/multiple.html');
-
+    this.directory('themes',   'static/themes');
     this.directory('public',   'static/public');
     this.directory('pages',    'static/pages');
     this.directory('articles', 'static/articles');

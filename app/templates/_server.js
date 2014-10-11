@@ -1,20 +1,21 @@
 'use strict';
 var express = require('express'),
     Paperpress = require('paperpress').Paperpress,
+    logger = require('morgan'),
     port = process.argv[2] || 3000;
 
 var server = express();
-server.use(express.logger());
+server.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
 
-var blog = new Paperpress({
+var paperpress = new Paperpress({
     directory : 'static',
-    themePath : 'static/layouts',
+    themePath : '/static/themes/base',
     basePath  : '/blog',
-    articlesPerPage : 15,
-    pagesPath : ''
+    pagesPath : '',
+    articlesPerPage : 2
 });
 
-blog.attach(server);
+paperpress.attach(server);
 
 server.get('/', function (req, res) {
     res.redirect('/blog');
